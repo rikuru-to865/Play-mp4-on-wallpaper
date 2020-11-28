@@ -16,8 +16,6 @@ namespace BackGroundMovie
     {
         public movie()
         {
-
-            
             if (File.Exists("./miku.mp4") != true)
             {
                 byte[] miku = Properties.Resources.miku;
