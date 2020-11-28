@@ -1,0 +1,15 @@
+D:\back\BackGroundMovie\BackGroundMovie\bin\Release\BackGroundMovie.exe.config
+D:\back\BackGroundMovie\BackGroundMovie\bin\Release\BackGroundMovie.exe
+D:\back\BackGroundMovie\BackGroundMovie\bin\Release\BackGroundMovie.pdb
+D:\back\BackGroundMovie\BackGroundMovie\bin\Release\Interop.WMPLib.dll
+D:\back\BackGroundMovie\BackGroundMovie\bin\Release\AxInterop.WMPLib.dll
+D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.csprojAssemblyReference.cache
+D:\back\BackGroundMovie\BackGroundMovie\obj\Release\Interop.WMPLib.dll
+D:\back\BackGroundMovie\BackGroundMovie\obj\Release\AxInterop.WMPLib.dll
+D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.csproj.ResolveComReference.cache
+D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.movie.resources
+D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.Properties.Resources.resources
+D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.csproj.GenerateResource.cache
+D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.csproj.CoreCompileInputs.cache
+D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.exe
+D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.pdb

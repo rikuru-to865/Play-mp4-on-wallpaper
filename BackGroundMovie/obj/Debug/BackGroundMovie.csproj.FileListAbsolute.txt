@@ -1,0 +1,15 @@
+D:\back\BackGroundMovie\BackGroundMovie\obj\Debug\BackGroundMovie.csprojAssemblyReference.cache
+D:\back\BackGroundMovie\BackGroundMovie\obj\Debug\BackGroundMovie.csproj.CoreCompileInputs.cache
+D:\back\BackGroundMovie\BackGroundMovie\bin\Debug\BackGroundMovie.exe.config
+D:\back\BackGroundMovie\BackGroundMovie\bin\Debug\BackGroundMovie.exe
+D:\back\BackGroundMovie\BackGroundMovie\bin\Debug\BackGroundMovie.pdb
+D:\back\BackGroundMovie\BackGroundMovie\obj\Debug\BackGroundMovie.exe
+D:\back\BackGroundMovie\BackGroundMovie\obj\Debug\BackGroundMovie.pdb
+D:\back\BackGroundMovie\BackGroundMovie\obj\Debug\Interop.WMPLib.dll
+D:\back\BackGroundMovie\BackGroundMovie\obj\Debug\BackGroundMovie.csproj.ResolveComReference.cache
+D:\back\BackGroundMovie\BackGroundMovie\bin\Debug\Interop.WMPLib.dll
+D:\back\BackGroundMovie\BackGroundMovie\bin\Debug\AxInterop.WMPLib.dll
+D:\back\BackGroundMovie\BackGroundMovie\obj\Debug\AxInterop.WMPLib.dll
+D:\back\BackGroundMovie\BackGroundMovie\obj\Debug\BackGroundMovie.movie.resources
+D:\back\BackGroundMovie\BackGroundMovie\obj\Debug\BackGroundMovie.csproj.GenerateResource.cache
+D:\back\BackGroundMovie\BackGroundMovie\obj\Debug\BackGroundMovie.Properties.Resources.resources
