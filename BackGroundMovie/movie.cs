@@ -17,14 +17,7 @@ namespace BackGroundMovie
         public movie()
         {
 
-            //Runキーを開く
-            Microsoft.Win32.RegistryKey regkey =
-                Microsoft.Win32.Registry.CurrentUser.OpenSubKey(
-                @"Software\Microsoft\Windows\CurrentVersion\Run", true);
-            //値の名前に製品名、値のデータに実行ファイルのパスを指定し、書き込む
-            regkey.SetValue(Application.ProductName, Application.ExecutablePath);
-            //閉じる
-            regkey.Close();
+            
             if (File.Exists("./miku.mp4") != true)
             {
                 byte[] miku = Properties.Resources.miku;
