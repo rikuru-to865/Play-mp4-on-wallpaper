@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Text;
 
 public class Win32
 {
@@ -55,6 +56,13 @@ public class Win32
         SMTO_NOTIMEOUTIFNOTHUNG = 0x8,
         SMTO_ERRORONEXIT = 0x20,
     }
+    [DllImport("user32.dll")]
+    public static extern IntPtr GetForegroundWindow();
+    [DllImport("user32.dll")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    private static extern bool SetForegroundWindow(IntPtr hWnd);
+    [DllImport("user32.dll", EntryPoint = "GetWindowText", CharSet = CharSet.Auto)]
+    public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
     [DllImport("user32.dll")]
     public static extern IntPtr GetDCEx_IntPtr(IntPtr hWnd, IntPtr hrgnClip, DeviceContextValues flags);
     [DllImport("user32.dll")]

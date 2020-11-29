@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace BackGroundMovie
 {
-    class Program
+    public class Program
     {
         [STAThread]
         static void Main(string[] args)
@@ -54,6 +54,10 @@ namespace BackGroundMovie
                 Application.Run(movie);
                 // Create a Graphics instance from the Device Context
             }
+        }
+        public static void tes()
+        {
+
         }
         
     }
