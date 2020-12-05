@@ -5,8 +5,12 @@ namespace BackGroundMovie
 {
     public class Program
     {
+        static movie movie = new movie();
+        static IntPtr workerw = IntPtr.Zero;
+
         [STAThread]
         static void Main(string[] args)
+
         {
             IntPtr progman = Win32.FindWindow("Progman", null);
             UIntPtr result = UIntPtr.Zero;
@@ -21,7 +25,6 @@ namespace BackGroundMovie
                                    Win32.SendMessageTimeoutFlags.SMTO_NORMAL,
                                    1000,
                                    out result);
-            IntPtr workerw = IntPtr.Zero;
 
             // We enumerate all Windows, until we find one, that has the SHELLDLL_DefView 
             // as a child. 
@@ -48,17 +51,15 @@ namespace BackGroundMovie
             IntPtr dc = Win32.GetDCEx(workerw, IntPtr.Zero, (Win32.DeviceContextValues)0x403);
             if (dc != IntPtr.Zero)
             {
-                movie movie = new movie();
                 Win32.SetParent(movie.Handle, workerw);
                 // Start the Application Loop for the Form.
                 Application.Run(movie);
                 // Create a Graphics instance from the Device Context
             }
         }
-        public static void tes()
+        public static void setparent()
         {
-
+            Win32.SetParent(movie.Handle, workerw);
         }
-        
     }
 }

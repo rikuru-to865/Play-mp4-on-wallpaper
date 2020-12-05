@@ -13,3 +13,18 @@ D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.csproj.Gener
 D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.csproj.CoreCompileInputs.cache
 D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.exe
 D:\back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.pdb
+D:\for miku back\BackGroundMovie\BackGroundMovie\bin\Release\BackGroundMovie.exe.config
+D:\for miku back\BackGroundMovie\BackGroundMovie\bin\Release\BackGroundMovie.exe
+D:\for miku back\BackGroundMovie\BackGroundMovie\bin\Release\BackGroundMovie.pdb
+D:\for miku back\BackGroundMovie\BackGroundMovie\bin\Release\Interop.WMPLib.dll
+D:\for miku back\BackGroundMovie\BackGroundMovie\bin\Release\AxInterop.WMPLib.dll
+D:\for miku back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.csprojAssemblyReference.cache
+D:\for miku back\BackGroundMovie\BackGroundMovie\obj\Release\Interop.WMPLib.dll
+D:\for miku back\BackGroundMovie\BackGroundMovie\obj\Release\AxInterop.WMPLib.dll
+D:\for miku back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.csproj.ResolveComReference.cache
+D:\for miku back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.movie.resources
+D:\for miku back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.Properties.Resources.resources
+D:\for miku back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.csproj.GenerateResource.cache
+D:\for miku back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.csproj.CoreCompileInputs.cache
+D:\for miku back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.exe
+D:\for miku back\BackGroundMovie\BackGroundMovie\obj\Release\BackGroundMovie.pdb

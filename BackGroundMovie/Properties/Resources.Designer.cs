@@ -59,15 +59,5 @@ namespace BackGroundMovie.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   型 System.Byte[] のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static byte[] miku {
-            get {
-                object obj = ResourceManager.GetObject("miku", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }
