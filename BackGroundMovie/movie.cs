@@ -6,11 +6,18 @@ using System.Text;
 using System.Drawing;
 using System.Configuration;
 using Microsoft.Win32;
+using System.Runtime.InteropServices;
 
 namespace BackGroundMovie
 {
     public partial class movie : Form
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern bool SystemParametersInfo(uint uAction, uint uParam, string lpvParam, uint fuWinIni);
+
+        private const uint SPI_SETDESKWALLPAPER = 0x0014;
+        private const uint SPIF_UPDATEINIFILE = 1;
+        private const uint SPIF_SENDWININICHANGE = 2;
         public movie()
         {
             SystemEvents.PowerModeChanged += (sender, e) =>
@@ -105,7 +112,10 @@ namespace BackGroundMovie
 
         private void 閉じるToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            StringBuilder sb = new StringBuilder(@"C:\Windows\Web\Wallpaper\Windows");
+            SystemParametersInfo(SPI_SETDESKWALLPAPER, (uint)sb.Length, sb.ToString(), SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
             Application.Exit();
+
         }
     }
 }
