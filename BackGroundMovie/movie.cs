@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Configuration;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
+using CefSharp;
+using CefSharp.WinForms;
 
 namespace BackGroundMovie
 {
@@ -24,9 +26,11 @@ namespace BackGroundMovie
             {
                 this.axWindowsMediaPlayer1.fullScreen = false;
                 this.axWindowsMediaPlayer1.settings.volume = 0;
-                this.axWindowsMediaPlayer1.URL = Properties.Settings.Default.DefaultVideo;
+                this.axWindowsMediaPlayer1.URL = Properties.Settings.Default.DefaultFile;
+                this.axWindowsMediaPlayer1.Ctlcontrols.currentPosition = 0;
                 Program.setparent();
             };
+
             //Runキーを開く
             Microsoft.Win32.RegistryKey regkey =
                 Microsoft.Win32.Registry.CurrentUser.OpenSubKey(
@@ -37,7 +41,20 @@ namespace BackGroundMovie
             regkey.Close();
 
             InitializeComponent();
-            axWindowsMediaPlayer1.URL = Properties.Settings.Default.DefaultVideo;
+            if(Path.GetExtension(Properties.Settings.Default.DefaultFile) != ".html" || Path.GetExtension(Properties.Settings.Default.DefaultFile) != ".htm") { 
+                axWindowsMediaPlayer1.URL = Properties.Settings.Default.DefaultFile;
+            }
+            else
+            {
+                this.axWindowsMediaPlayer1.Visible = false;
+                ChromiumWebBrowser cefBrowser;
+                CefSettings settings = new CefSettings();
+                Cef.Initialize(settings);
+                cefBrowser = new ChromiumWebBrowser(Properties.Settings.Default.DefaultFile);
+                this.Controls.Add(cefBrowser);
+                cefBrowser.Dock = DockStyle.Fill;
+            }
+
         }
 
 
@@ -47,6 +64,7 @@ namespace BackGroundMovie
             this.FormBorderStyle = FormBorderStyle.None;
             axWindowsMediaPlayer1.settings.autoStart = true;
             axWindowsMediaPlayer1.settings.setMode("loop", true);
+            this.axWindowsMediaPlayer1.Ctlcontrols.currentPosition = 0;
         }
         private async Task CheckWindow()
         {
@@ -77,27 +95,16 @@ namespace BackGroundMovie
 
         private void ほかの動画を流すToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            //OpenFileDialogクラスのインスタンスを作成
+            this.axWindowsMediaPlayer1.Visible = true;
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
 
-            //[ファイルの種類]に表示される選択肢を指定する
-            //指定しないとすべてのファイルが表示される
-            ofd.Filter = "mp4ファイル(*.mp4)|*.mp4";
-            //[ファイルの種類]ではじめに選択されるものを指定する
-            //2番目の「すべてのファイル」が選択されているようにする
+            
+            ofd.Filter = "mp4ファイル(*.mp4)|*.mp4|すべてのファイル(*.*)|*.*";
             ofd.FilterIndex = 2;
-            //タイトルを設定する
             ofd.Title = "開くファイルを選択してください";
-            //ダイアログボックスを閉じる前に現在のディレクトリを復元するようにする
             ofd.RestoreDirectory = true;
-            //存在しないファイルの名前が指定されたとき警告を表示する
-            //デフォルトでTrueなので指定する必要はない
             ofd.CheckFileExists = true;
-            //存在しないパスが指定されたとき警告を表示する
-            //デフォルトでTrueなので指定する必要はない
             ofd.CheckPathExists = true;
-            //ダイアログを表示する
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 this.axWindowsMediaPlayer1.URL = ofd.FileName;
@@ -105,7 +112,7 @@ namespace BackGroundMovie
             DialogResult result = MessageBox.Show("デフォルトに設定しますか？", "質問", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
             {
-                Properties.Settings.Default.DefaultVideo = ofd.FileName;
+                Properties.Settings.Default.DefaultFile = ofd.FileName;
                 Properties.Settings.Default.Save();
             }
         }
@@ -116,6 +123,43 @@ namespace BackGroundMovie
             SystemParametersInfo(SPI_SETDESKWALLPAPER, (uint)sb.Length, sb.ToString(), SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
             Application.Exit();
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition > axWindowsMediaPlayer1.Ctlcontrols.currentItem.duration - 0.01)
+            {
+                axWindowsMediaPlayer1.Ctlcontrols.currentPosition = 0;
+            }
+        }
+
+        private void htmlファイルからToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+
+            ofd.Filter = "htmlファイル(*.html)|*.html|すべてのファイル(*.*)|*.*";
+            ofd.FilterIndex = 2;
+            ofd.Title = "開くファイルを選択してください";
+            ofd.RestoreDirectory = true;
+            ofd.CheckFileExists = true;
+            ofd.CheckPathExists = true;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                this.axWindowsMediaPlayer1.Visible = false;
+                ChromiumWebBrowser cefBrowser;
+                CefSettings settings = new CefSettings();
+                Cef.Initialize(settings);
+                cefBrowser = new ChromiumWebBrowser(ofd.FileName);
+                this.Controls.Add(cefBrowser);
+                cefBrowser.Dock = DockStyle.Fill;
+            }
+            DialogResult result = MessageBox.Show("デフォルトに設定しますか？", "質問", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                Properties.Settings.Default.DefaultFile = ofd.FileName;
+                Properties.Settings.Default.Save();
+            }
+            
         }
     }
 }
