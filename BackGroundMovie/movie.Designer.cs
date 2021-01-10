@@ -35,6 +35,7 @@
             this.menu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.閉じるToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ほかの動画を流すToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.htmlファイルからToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.menu.SuspendLayout();
             this.SuspendLayout();
@@ -60,9 +61,10 @@
             // 
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.閉じるToolStripMenuItem,
-            this.ほかの動画を流すToolStripMenuItem});
+            this.ほかの動画を流すToolStripMenuItem,
+            this.htmlファイルからToolStripMenuItem});
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(160, 48);
+            this.menu.Size = new System.Drawing.Size(160, 70);
             // 
             // 閉じるToolStripMenuItem
             // 
@@ -77,6 +79,13 @@
             this.ほかの動画を流すToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.ほかの動画を流すToolStripMenuItem.Text = "ほかの動画を流す";
             this.ほかの動画を流すToolStripMenuItem.Click += new System.EventHandler(this.ほかの動画を流すToolStripMenuItem_Click);
+            // 
+            // htmlファイルからToolStripMenuItem
+            // 
+            this.htmlファイルからToolStripMenuItem.Name = "htmlファイルからToolStripMenuItem";
+            this.htmlファイルからToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.htmlファイルからToolStripMenuItem.Text = "htmlファイルから";
+            this.htmlファイルからToolStripMenuItem.Click += new System.EventHandler(this.htmlファイルからToolStripMenuItem_Click);
             // 
             // movie
             // 
@@ -100,5 +109,6 @@
         private System.Windows.Forms.ContextMenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem 閉じるToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ほかの動画を流すToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem htmlファイルからToolStripMenuItem;
     }
 }
