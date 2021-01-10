@@ -3,6 +3,9 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Text;
 
+
+                                        //This file is all magic
+                                        //Please do not touch!!
 public class Win32
 {
     [Flags()]

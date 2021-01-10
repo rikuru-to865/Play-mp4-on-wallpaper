@@ -9,11 +9,14 @@ using Microsoft.Win32;
 using System.Runtime.InteropServices;
 using CefSharp;
 using CefSharp.WinForms;
+using System.Threading;
 
 namespace BackGroundMovie
 {
     public partial class movie : Form
     {
+        ChromiumWebBrowser cefBrowser;
+
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern bool SystemParametersInfo(uint uAction, uint uParam, string lpvParam, uint fuWinIni);
 
@@ -41,7 +44,8 @@ namespace BackGroundMovie
             regkey.Close();
 
             InitializeComponent();
-            if(Path.GetExtension(Properties.Settings.Default.DefaultFile) != ".html" || Path.GetExtension(Properties.Settings.Default.DefaultFile) != ".htm") { 
+            if (Path.GetExtension(Properties.Settings.Default.DefaultFile) != ".html" && Path.GetExtension(Properties.Settings.Default.DefaultFile) != ".htm")
+            {
                 axWindowsMediaPlayer1.URL = Properties.Settings.Default.DefaultFile;
             }
             else
@@ -96,9 +100,10 @@ namespace BackGroundMovie
         private void ほかの動画を流すToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.axWindowsMediaPlayer1.Visible = true;
+
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
 
-            
+
             ofd.Filter = "mp4ファイル(*.mp4)|*.mp4|すべてのファイル(*.*)|*.*";
             ofd.FilterIndex = 2;
             ofd.Title = "開くファイルを選択してください";
@@ -146,12 +151,12 @@ namespace BackGroundMovie
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 this.axWindowsMediaPlayer1.Visible = false;
-                ChromiumWebBrowser cefBrowser;
                 CefSettings settings = new CefSettings();
                 Cef.Initialize(settings);
                 cefBrowser = new ChromiumWebBrowser(ofd.FileName);
                 this.Controls.Add(cefBrowser);
                 cefBrowser.Dock = DockStyle.Fill;
+                
             }
             DialogResult result = MessageBox.Show("デフォルトに設定しますか？", "質問", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
@@ -159,7 +164,12 @@ namespace BackGroundMovie
                 Properties.Settings.Default.DefaultFile = ofd.FileName;
                 Properties.Settings.Default.Save();
             }
-            
+
+
+        }
+        public static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
+        {
+            MessageBox.Show(e.Exception.ToString(), "Application_ThreadExceptionによる例外通知です。");
         }
     }
 }
