@@ -60,6 +60,14 @@ public class Win32
         SMTO_ERRORONEXIT = 0x20,
     }
     [DllImport("user32.dll")]
+    public static extern long SendMessage(
+    IntPtr hWnd,    // 送信先ウィンドウのハンドル
+    uint Msg,       // メッセージ
+    uint wParam,    // メッセージの最初のパラメータ
+    uint lParam     // メッセージの 2 番目のパラメータ
+    );
+
+    [DllImport("user32.dll")]
     public static extern IntPtr GetForegroundWindow();
     [DllImport("user32.dll")]
     [return: MarshalAs(UnmanagedType.Bool)]
@@ -84,7 +92,9 @@ public class Win32
         IntPtr childAfter,
         string lclassName,
         string windowTitle);
-
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern int GetWindowThreadProcessId(
+        IntPtr hWnd, out int lpdwProcessId);
     [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
     public static extern IntPtr SendMessageTimeout(
         IntPtr hWnd,

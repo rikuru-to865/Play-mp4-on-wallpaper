@@ -5,5 +5,8 @@
     <Setting Name="DefaultFile" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="isAddReg" Type="System.String" Scope="User">
+      <Value Profile="(Default)">init</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

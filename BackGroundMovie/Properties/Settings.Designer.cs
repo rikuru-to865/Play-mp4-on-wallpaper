@@ -34,5 +34,17 @@ namespace BackGroundMovie.Properties {
                 this["DefaultFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("init")]
+        public string isAddReg {
+            get {
+                return ((string)(this["isAddReg"]));
+            }
+            set {
+                this["isAddReg"] = value;
+            }
+        }
     }
 }
